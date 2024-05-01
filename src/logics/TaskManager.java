@@ -1,8 +1,8 @@
-package Logics;
-import Model.Epic;
-import Model.Subtask;
-import Model.Task;
-import Model.Status;
+package logics;
+import model.Epic;
+import model.Subtask;
+import model.Task;
+import model.Status;
 
 import java.util.HashMap;
 import java.util.ArrayList;
@@ -28,15 +28,13 @@ public class TaskManager {
         return tasks.get(managerId);
     }
     public void createTask(Task managerTask){
-        int i = increaseCount();
-        managerTask.id = i;
-        tasks.put(i, managerTask);
+        int i = increaseCount();    // ID
+        managerTask.setId(i);       // задаем id в поле Таска
+        tasks.put(i, managerTask);  // задаем тот же id в Мапе
     }
     public void updateTask(Task managerTask){
         if(tasks.containsKey(managerTask.getId())) {
             tasks.put(managerTask.getId(), managerTask);
-        } else {
-            return;
         }
     }
     public void deleteTaskById(Integer managerId){
@@ -57,7 +55,7 @@ public class TaskManager {
     }
     public void createEpic(Epic managerEpic){
         int i = increaseCount();
-        managerEpic.id = i;
+        managerEpic.setId(i);
         epics.put(i, managerEpic);
     }
     public void updateEpic(Epic managerEpic){
@@ -92,7 +90,8 @@ public class TaskManager {
     public void deleteAllSubTasks(){
         ArrayList<Epic> theEpics = (ArrayList<Epic>) epics.values();
         for(Epic theEpic : theEpics){
-            (theEpic.getSubIds()).clear();
+            ArrayList<Integer> subIds = theEpic.getSubIds();
+            subIds.clear();
         }
         subtasks.clear();
     }
@@ -101,7 +100,7 @@ public class TaskManager {
     }
     public void createSubTask(Subtask managerSubTask){
         int i = increaseCount();
-        managerSubTask.id = i;
+        managerSubTask.setId(i);
         int epicID = managerSubTask.getEpicId();
         subtasks.put(i, managerSubTask);
         managerSubTask.setEpicId(epicID);

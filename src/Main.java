@@ -1,7 +1,7 @@
-import Logics.TaskManager;
-import Model.Epic;
-import Model.Subtask;
-import Model.Task;
+import logics.TaskManager;
+import model.Epic;
+import model.Subtask;
+import model.Task;
 
 import java.util.ArrayList;
 

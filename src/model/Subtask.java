@@ -1,9 +1,9 @@
-package Model;
+package model;
 
 import java.util.Objects;
 
 public class Subtask extends Task {
-    protected int epicId;
+    private int epicId;
 
     public Subtask(String name, String description, int epicId) {
         super(name, description);
