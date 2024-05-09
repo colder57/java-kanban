@@ -45,9 +45,8 @@ public class InMemoryTaskManager implements TaskManager {
 
     @Override
     public void createTask(Task managerTask) {
-        int i = increaseCount();    // ID
-        managerTask.setId(i);       // задаем id в поле Таска
-        tasks.put(i, managerTask);  // задаем тот же id в Мапе
+        managerTask.setId(increaseCount());       // задаем id в поле Таска
+        tasks.put(managerTask.getId(), managerTask);  // задаем тот же id в Мапе
     }
 
     @Override
@@ -84,9 +83,8 @@ public class InMemoryTaskManager implements TaskManager {
 
     @Override
     public void createEpic(Epic managerEpic) {
-        int i = increaseCount();
-        managerEpic.setId(i);
-        epics.put(i, managerEpic);
+        managerEpic.setId(increaseCount());
+        epics.put(managerEpic.getId(), managerEpic);
     }
 
     @Override
