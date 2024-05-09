@@ -6,10 +6,12 @@ import model.Task;
 
 import java.util.ArrayList;
 
+import static logics.Managers.getDefault;
+
 public class Main {
 
     public static void main(String[] args) {
-        InMemoryTaskManager manager = new InMemoryTaskManager();
+        TaskManager manager = getDefault();
         ArrayList<Integer> subs1 = new ArrayList<>();  // Список id подзадач Эпика1
         subs1.add(4);
         subs1.add(5);
