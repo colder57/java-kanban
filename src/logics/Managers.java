@@ -1,17 +1,11 @@
 package logics;
 
-import history.HistoryManager;
-import history.InMemoryHistoryManager;
-import model.Epic;
-import model.Subtask;
-import model.Task;
-
-import java.util.ArrayList;
-import java.util.List;
+import logics.history.HistoryManager;
+import logics.history.InMemoryHistoryManager;
 
 public class Managers {
     public static TaskManager getDefault() {
-        return new InMemoryTaskManager();
+        return new InMemoryTaskManager(getDefaultHistory());
     }
     public static HistoryManager getDefaultHistory(){
         return new InMemoryHistoryManager();

@@ -1,6 +1,6 @@
 package logics;
 
-import history.HistoryManager;
+import logics.history.HistoryManager;
 import model.Epic;
 import model.Status;
 import model.Subtask;
@@ -9,16 +9,20 @@ import model.Task;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static logics.Managers.getDefaultHistory;
 
 public class InMemoryTaskManager implements TaskManager {
+    InMemoryTaskManager(HistoryManager historyManager){
+        this.historyManager = historyManager;
+    }
     public int count = 0;
-    HashMap<Integer, Task> tasks = new HashMap<>();
-    HashMap<Integer, Subtask> subtasks = new HashMap<>();
-    HashMap<Integer, Epic> epics = new HashMap<>();
+    Map<Integer, Task> tasks = new HashMap<>();
+    Map<Integer, Subtask> subtasks = new HashMap<>();
+    Map<Integer, Epic> epics = new HashMap<>();
 
-    HistoryManager historyManager = getDefaultHistory();
+    HistoryManager historyManager;
 
     private int increaseCount() {
         count++;

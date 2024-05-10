@@ -1,4 +1,4 @@
-package history;
+package logics.history;
 
 import model.Task;
 

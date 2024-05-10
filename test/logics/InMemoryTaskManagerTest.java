@@ -5,10 +5,11 @@ import model.Subtask;
 import model.Task;
 import org.junit.jupiter.api.Test;
 
+import static logics.Managers.getDefault;
 import static org.junit.jupiter.api.Assertions.*;
 
 class InMemoryTaskManagerTest {
-    InMemoryTaskManager manager = new InMemoryTaskManager();
+    InMemoryTaskManager manager = (InMemoryTaskManager) getDefault();
     @Test
     void shouldBeFalseWhenTaskManagerNotAddTasks() {
         Task task1 = new Task("Name1", "Description1");
@@ -38,7 +39,7 @@ class InMemoryTaskManagerTest {
     }
     @Test
     void shouldBeFalseWhenIdsNotCoincide(){
-        InMemoryTaskManager manager = new InMemoryTaskManager();
+        InMemoryTaskManager manager = (InMemoryTaskManager) getDefault();
         Task task1 = new Task("Name1", "Description1");
         task1.setId(13);
         Task task2 = new Task("Name2", "Description2");

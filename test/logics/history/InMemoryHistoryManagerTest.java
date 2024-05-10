@@ -1,6 +1,7 @@
-package history;
+package logics.history;
 
 import logics.TaskManager;
+import logics.history.InMemoryHistoryManager;
 import model.Epic;
 import model.Subtask;
 import model.Task;

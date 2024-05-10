@@ -1,4 +1,4 @@
-package history;
+package logics.history;
 
 import model.Task;
 
@@ -16,6 +16,7 @@ public class InMemoryHistoryManager implements HistoryManager {
     }
     @Override
     public List<Task> getHistory(){
-        return lastTenRequests;
+        List<Task> result = lastTenRequests;
+        return result;
     }
 }
